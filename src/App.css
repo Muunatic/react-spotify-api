@@ -1,0 +1,179 @@
+/* 
+* © 2023 Muunatic. All rights reserved.
+*/
+
+* {
+  font-family: 'Comfortaa', sans-serif;
+}
+
+body {
+  background-color: #25282b;
+  user-select: none;
+  letter-spacing: 1px;
+  color: #eee;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+a:hover {
+  color: rgb(235, 235, 235);
+  text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  padding: 0;
+  margin: 0;
+}
+
+.page {
+  margin-left: auto;
+  margin-right: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.main {
+  width: 95vw;
+  border-radius: 10px 10px 0px 0px;
+  background-color: #222;
+}
+
+.maincontent {
+  padding: 1rem;
+  color: whitesmoke;
+}
+
+.maindescription {
+  font-size: 12px;
+}
+
+.maingrid {
+  display: grid;
+  grid-template-columns: 20% 40% 40%;
+  gap: 2rem;
+}
+
+.grid1 {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.grid2 {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.grid2box {
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.grid3 {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.socialmedia p {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.profileimg {
+  border-radius: 100%;
+  object-fit: cover;
+  width: 144px;
+  max-width: 100%;
+}
+
+.iconfooter {
+  color: white;
+}
+
+.albumimg {
+  object-fit: cover;
+  width: 144px;
+  max-width: 100%;
+}
+
+.mainfooter {
+  width: 95vw;
+  border-radius: 0px 0px 10px 10px;
+  background-color: #222;
+}
+
+.mainfootercontent {
+  text-align: center;
+  padding: 1rem;
+  color: whitesmoke;
+}
+
+.icononline {
+  color: #2ecc71;
+}
+
+
+.icondown {
+  color: #e74c3c;
+}
+
+.iconoffline {
+  color: #979c9f;
+}
+
+.footerinline {
+  margin-right: 1rem;
+  margin-left: 1rem;
+  text-align: center;
+  display: inline-block;
+}
+
+@media only screen and (max-width: 810px) {
+
+  p {
+    font-size: 2vw;
+    margin: 0;
+  }
+
+  h3 {
+    font-size: 3vw;
+  }
+
+  .maindescription {
+    font-size: 1.25vw;
+  }
+
+  .profileimg {
+    border-radius: 100%;
+    object-fit: cover;
+    width: 144px;
+    max-width: 100%;
+  }
+
+}
+
+@media only screen and (max-width: 375px) {
+
+  * {
+    display: none;
+    visibility: hidden;
+  }
+
+  body {
+    display: none;
+    visibility: hidden;
+  }
+
+}
