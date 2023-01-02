@@ -1,6 +1,7 @@
 // © 2023 Muunatic. All rights reserved.
 
 import { bearer } from './config';
+import { dataInterface } from './interface';
 
 /**
  * @module spotifyAPI
@@ -40,7 +41,7 @@ class spotifyAPI {
             }
         }).then((res) => {
             return res.json();
-        }).then((data): string => {
+        }).then((data: dataInterface): string => {
             if (data.item == null) {
                 return null;
             } else {
@@ -73,7 +74,7 @@ class spotifyAPI {
             }
         }).then((res) => {
             return res.json();
-        }).then((data): string => {
+        }).then((data: dataInterface): string => {
             if (data.item == null) {
                 return null;
             } else {
@@ -108,7 +109,7 @@ class spotifyAPI {
             }
         }).then((res) => {
             return res.json();
-        }).then((data): string => {
+        }).then((data: dataInterface): string => {
             if (data.item == null) {
                 return null;
             } else {
@@ -141,7 +142,7 @@ class spotifyAPI {
             }
         }).then((res) => {
             return res.json();
-        }).then((data): string => {
+        }).then((data: dataInterface): string => {
             if (data.item == null) {
                 return null;
             } else {
@@ -174,7 +175,7 @@ class spotifyAPI {
             }
         }).then((res) => {
             return res.json();
-        }).then((data) => {
+        }).then((data: dataInterface) => {
             if (data.item == null) {
                 return null;
             } else {
