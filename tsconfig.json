@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "jsx": "react",
     "module": "commonjs",
     "target": "ES2021",
     "outDir": "dist",
@@ -10,17 +9,19 @@
     ],
     "alwaysStrict": true,
     "allowJs": false,
-    "sourceMap": false,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
     "inlineSourceMap": true,
     "inlineSources": true,
+    "jsx": "react",
     "noImplicitAny": true,
     "noImplicitThis": true,
-    "strictNullChecks": false, 
-    "strictFunctionTypes": true,
-    "strictBindCallApply": true,
-    "esModuleInterop": true,
+    "pretty": true,
     "resolveJsonModule": true,
-    "forceConsistentCasingInFileNames": true
+    "sourceMap": false,
+    "strictNullChecks": true, 
+    "strictFunctionTypes": true,
+    "strictBindCallApply": true
   },
   "include": [
     "./"
