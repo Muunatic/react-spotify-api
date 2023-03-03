@@ -16,9 +16,10 @@
         "@typescript-eslint"
     ],
     "rules": {
-        "prefer-const": 0,
-        "no-unused-vars": 1,
         "@typescript-eslint/no-unused-vars": 1,
-        "@typescript-eslint/no-inferrable-types": 0
+        "no-unused-vars": 1,
+        "eol-last": ["warn", "always"],
+        "semi-style": ["warn", "last"],
+        "semi": "error"
     }
 }
