@@ -8,7 +8,7 @@ import { dataInterface } from './interface';
  * @author Muunatic
  * @version 0.2.0
  */
-class spotifyAPI {
+class SpotifyAPI {
 
     /**
      * @protected
@@ -41,12 +41,12 @@ class spotifyAPI {
             }
         }).then((res) => {
             return res.json();
-        }).then((data: dataInterface): string => {
+        }).then((data: dataInterface): string | void => {
             if (data.item == null) {
-                return null;
+                return;
             } else {
-                let imgid = document.getElementById("Image") as HTMLImageElement | null;
-                let result = data.item.album.images[0].url;
+                const imgid = document.getElementById("Image") as HTMLImageElement;
+                const result = data.item.album.images[0].url;
                 if (result == imgid.src) {
                     return;
                 } else if (result != imgid.src) {
@@ -74,13 +74,13 @@ class spotifyAPI {
             }
         }).then((res) => {
             return res.json();
-        }).then((data: dataInterface): string => {
+        }).then((data: dataInterface): string | void => {
             if (data.item == null) {
-                return null;
+                return;
             } else {
-                let nameid = document.getElementById("Name");
-                let altdoc = document.getElementById("Image") as HTMLImageElement | null;
-                let result = data.item.name;
+                const nameid = document.getElementById("Name") as HTMLImageElement;
+                const altdoc = document.getElementById("Image") as HTMLImageElement;
+                const result = data.item.name;
                 if (result == nameid.innerHTML) {
                     return;
                 } else if (result != nameid.innerHTML) {
@@ -109,12 +109,12 @@ class spotifyAPI {
             }
         }).then((res) => {
             return res.json();
-        }).then((data: dataInterface): string => {
+        }).then((data: dataInterface): string | void => {
             if (data.item == null) {
-                return null;
+                return;
             } else {
-                let artistid = document.getElementById("Artists");
-                let result = 'by ' + data.item.artists[0].name;
+                const artistid = document.getElementById("Artists") as HTMLImageElement;
+                const result = 'by ' + data.item.artists[0].name;
                 if (result == artistid.innerHTML) {
                     return;
                 } else if (result != artistid.innerHTML) {
@@ -142,12 +142,12 @@ class spotifyAPI {
             }
         }).then((res) => {
             return res.json();
-        }).then((data: dataInterface): string => {
+        }).then((data: dataInterface): string | void => {
             if (data.item == null) {
-                return null;
+                return;
             } else {
-                let nameid = document.getElementById("Album");
-                let result = 'on ' + data.item.album.name;
+                const nameid = document.getElementById("Album") as HTMLImageElement;
+                const result = 'on ' + data.item.album.name;
                 if (result == nameid.innerHTML) {
                     return;
                 } else if (result != nameid.innerHTML) {
@@ -165,7 +165,7 @@ class spotifyAPI {
      * @param {string} params - bearer key
      * @returns {boolean} boolean
      */
-    private async spotifyIsPlaying(params: string): Promise<boolean> {
+    private async spotifyIsPlaying(params: string): Promise<boolean | null | undefined> {
         return await fetch('https://api.spotify.com/v1/me/player/currently-playing', {
             method: 'GET',
             headers: {
@@ -175,12 +175,12 @@ class spotifyAPI {
             }
         }).then((res) => {
             return res.json();
-        }).then((data: dataInterface) => {
+        }).then((data: dataInterface): boolean | null | undefined => {
             if (data.item == null) {
                 return null;
             } else {
-                let isPlaying = document.getElementById("IsPlaying");
-                let statusId = document.getElementById("spotifyuser");
+                const isPlaying = document.getElementById("IsPlaying") as HTMLImageElement;
+                const statusId = document.getElementById("spotifyuser") as HTMLImageElement;
                 if (data.is_playing == true) {
                     if (statusId.classList.contains("iconoffline")) {
                         statusId.classList.remove("iconoffline");
@@ -212,9 +212,9 @@ class spotifyAPI {
      * Start App
      * @public
      * @async
-     * @returns {string} string
+     * @returns {void} void
      */
-    public async start(): Promise<string | void> {
+    public async start(): Promise<void> {
         if (await this.spotifyIsPlaying(this.OAuth) == true) {
             return console.log('Start');
         } else if (await this.spotifyIsPlaying(this.OAuth) == false) {
@@ -226,9 +226,9 @@ class spotifyAPI {
      * Update Data
      * @public
      * @async
-     * @returns {string} update data
+     * @returns {void} update data
      */
-    public async update(): Promise<string | void> {
+    public async update(): Promise<void> {
         if (await this.spotifyIsPlaying(this.OAuth) == true) {
             return console.log('Data updated');
         } else if (await this.spotifyIsPlaying(this.OAuth) == false) {
@@ -237,9 +237,9 @@ class spotifyAPI {
     }
 }
 
-const api = new spotifyAPI(bearer);
+const api = new SpotifyAPI(bearer);
 api.start().then(async () => {
     setInterval(() => {
         api.update();
     }, 5000);
-})
+});

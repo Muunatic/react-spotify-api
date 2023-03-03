@@ -57,7 +57,7 @@ interface albumImageData {
 interface artistsData {
   external_urls: {
     spotify: string;
-  },
+  }
   href: string;
   id: string;
   name: string;
