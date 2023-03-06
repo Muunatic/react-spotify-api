@@ -78,7 +78,7 @@ class SpotifyAPI {
             if (data.item == null) {
                 return;
             } else {
-                const nameid = document.getElementById("Name") as HTMLImageElement;
+                const nameid = document.getElementById("Name") as HTMLElement;
                 const altdoc = document.getElementById("Image") as HTMLImageElement;
                 const result = data.item.name;
                 if (result == nameid.innerHTML) {
@@ -113,7 +113,7 @@ class SpotifyAPI {
             if (data.item == null) {
                 return;
             } else {
-                const artistid = document.getElementById("Artists") as HTMLImageElement;
+                const artistid = document.getElementById("Artists") as HTMLElement;
                 const result = 'by ' + data.item.artists[0].name;
                 if (result == artistid.innerHTML) {
                     return;
@@ -146,7 +146,7 @@ class SpotifyAPI {
             if (data.item == null) {
                 return;
             } else {
-                const nameid = document.getElementById("Album") as HTMLImageElement;
+                const nameid = document.getElementById("Album") as HTMLElement;
                 const result = 'on ' + data.item.album.name;
                 if (result == nameid.innerHTML) {
                     return;
@@ -179,8 +179,8 @@ class SpotifyAPI {
             if (data.item == null) {
                 return null;
             } else {
-                const isPlaying = document.getElementById("IsPlaying") as HTMLImageElement;
-                const statusId = document.getElementById("spotifyuser") as HTMLImageElement;
+                const isPlaying = document.getElementById("IsPlaying") as HTMLElement;
+                const statusId = document.getElementById("spotifyuser") as HTMLElement;
                 if (data.is_playing == true) {
                     if (statusId.classList.contains("iconoffline")) {
                         statusId.classList.remove("iconoffline");
