@@ -4,11 +4,11 @@ import { bearer } from './config';
 import { dataInterface } from './interface';
 
 /**
- * @module spotifyAPI
+ * @module AppAPI
  * @author Muunatic
  * @version 0.2.0
  */
-class SpotifyAPI {
+class AppAPI {
 
     /**
      * @protected
@@ -29,7 +29,7 @@ class SpotifyAPI {
      * @private
      * @async
      * @param {string} params - bearer key
-     * @returns {string} image data
+     * @returns {Promise<string | void>} image data
      */
     private async spotifyImage(params: string): Promise<string | void> {
         return await fetch('https://api.spotify.com/v1/me/player/currently-playing', {
@@ -62,7 +62,7 @@ class SpotifyAPI {
      * @private
      * @async
      * @param {string} params - bearer key
-     * @returns {string} name data
+     * @returns {Promise<string | void>} name data
      */
     private async spotifyName(params: string): Promise<string | void> {
         return await fetch('https://api.spotify.com/v1/me/player/currently-playing', {
@@ -97,7 +97,7 @@ class SpotifyAPI {
      * @private
      * @async
      * @param {string} params - bearer key
-     * @returns {string} artist data
+     * @returns {Promise<string | void>} artist data
      */
     private async spotifyArtist(params: string): Promise<string | void> {
         return await fetch('https://api.spotify.com/v1/me/player/currently-playing', {
@@ -130,7 +130,7 @@ class SpotifyAPI {
      * @private
      * @async
      * @param {string} params - bearer key
-     * @returns {string} album data
+     * @returns {Promise<string | void>} album data
      */
     private async spotifyAlbum(params: string): Promise<string | void> {
         return await fetch('https://api.spotify.com/v1/me/player/currently-playing', {
@@ -163,7 +163,7 @@ class SpotifyAPI {
      * @private
      * @async
      * @param {string} params - bearer key
-     * @returns {boolean} boolean
+     * @returns {Promise<boolean | null | undefined>} boolean data
      */
     private async spotifyIsPlaying(params: string): Promise<boolean | null | undefined> {
         return await fetch('https://api.spotify.com/v1/me/player/currently-playing', {
@@ -210,9 +210,10 @@ class SpotifyAPI {
 
     /**
      * Start App
+     * 
      * @public
      * @async
-     * @returns {void} void
+     * @returns {void} get data
      */
     public async start(): Promise<void> {
         if (await this.spotifyIsPlaying(this.OAuth) == true) {
@@ -224,6 +225,7 @@ class SpotifyAPI {
 
     /**
      * Update Data
+     * 
      * @public
      * @async
      * @returns {void} update data
@@ -237,7 +239,7 @@ class SpotifyAPI {
     }
 }
 
-const api = new SpotifyAPI(bearer);
+const api = new AppAPI(bearer);
 api.start().then(async () => {
     setInterval(() => {
         api.update();
