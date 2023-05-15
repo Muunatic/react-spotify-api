@@ -213,7 +213,7 @@ class AppAPI {
      * 
      * @public
      * @async
-     * @returns {void} get data
+     * @returns {Promise<void>} get data
      */
     public async start(): Promise<void> {
         if (await this.spotifyIsPlaying(this.OAuth) == true) {
@@ -228,7 +228,7 @@ class AppAPI {
      * 
      * @public
      * @async
-     * @returns {void} update data
+     * @returns {Promise<void>} update data
      */
     public async update(): Promise<void> {
         if (await this.spotifyIsPlaying(this.OAuth) == true) {
